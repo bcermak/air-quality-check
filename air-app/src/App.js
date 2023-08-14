@@ -1,10 +1,11 @@
 import './App.css';
+import Button from 'react-bootstrap/Button';
 
 function App() {
   return (
-    <div className="App">
-        hello
-    </div>
+    <>
+        <Button variant="dark">Dark</Button>
+    </>
   );
 }
 
