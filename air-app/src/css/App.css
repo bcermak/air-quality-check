@@ -1,0 +1,5 @@
+html, body, #root { height: 100%; }
+
+.MainApp {
+  padding-top: 30vh;
+}

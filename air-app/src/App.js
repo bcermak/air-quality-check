@@ -1,11 +1,16 @@
-import './App.css';
-import Button from 'react-bootstrap/Button';
+import './css/App.css';
+import MainForm from './components/MainForm'
+import Welcome from './components/Welcome';
+import SubmitButton from './components/SubmitButton';
 
 function App() {
   return (
-    <>
-        <Button variant="dark">Dark</Button>
-    </>
+    
+    <div className='MainApp'>
+      <Welcome/>
+      <MainForm/>
+      <SubmitButton/>
+    </div>
   );
 }
 
