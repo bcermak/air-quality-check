@@ -1,6 +1,5 @@
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button'
-import '../css/MainForm.css'
+import '../css/MainForm.css';
 
 function MainForm() {
   return (

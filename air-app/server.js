@@ -1,28 +1,17 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-var axios = require('axios');
-var FormData = require('form-data');
-var data = new FormData();
 
-var config = {
-  method: 'get',
-maxBodyLength: Infinity,
-  url: `http://api.airvisual.com/v2/station?station={{STATION_NAME}}&city={{CITY_NAME}}&state={{STATE_NAME}}&country={{COUNTRY_NAME}}&key=${process.env.API_KEY}`,
-  headers: { 
-    ...data.getHeaders()
-  },
-  data : data
-};
-
-axios(config)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
+fetch('https://api.openaq.org/v2/locations?limit=100&page=1&offset=0&sort=desc&radius=1000&order_by=lastUpdated&dumpRaw=false', {
+  method: 'GET',
+  headers: {
+    "X-API-Key": "7fc8867386b2d59d26266f1f4705a7e52c77e5c198a4f5c5aba6ca7f638fa093",
+    "accept": "application/json"
+  }
 })
-.catch(function (error) {
-  console.log(error);
-});
-
+  .then((response => response.json()))
+  .then(response => console.log(response))
+  .catch(err => console.log(err));
 
 const port = process.env.PORT || 8080
 app.listen(port, ()=>console.log(`Listening on port ${port}`));
