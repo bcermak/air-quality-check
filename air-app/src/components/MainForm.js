@@ -16,6 +16,7 @@ function MainForm() {
   const [resultCountry, setResultCountry] = useState("");
   const [temp, setTemp] = useState("");
   const [aqi, setAqi] = useState("");
+  const [hum, setHum] = useState("")
   
   const fetchData = () => {
       Axios.get(`http://api.airvisual.com/v2/city?city=${city}&state=${state}&country=${country}&key=621185cb-506f-4175-b71d-3a54e5e6b691`)
@@ -25,6 +26,7 @@ function MainForm() {
       setResultCountry(res.data.data.country);
       setTemp(res.data.data.current.weather.tp);
       setAqi(res.data.data.current.pollution.aqius);
+      setHum(res.data.data.current.weather.hu)
       console.log(res.data.data);
       }
       ).catch((err)=> {
@@ -32,7 +34,7 @@ function MainForm() {
       });
     
   }
-  
+
   return (
     <>
     <Form>
@@ -56,6 +58,7 @@ function MainForm() {
 
       <h5 style={{display: resultCity ? '' : 'none'}}> Data for {resultCity} {resultState} {resultCountry} </h5>
       <ul style={{display: temp ? '' : 'none'}}> Temp: {temp}° C</ul>
+      <ul style={{display: hum ? '' : 'none'}}> Humidity: {hum}%</ul>
       <ul style={{display: aqi ? '' : 'none'}}> AQI: {aqi} </ul>
     </>
         
