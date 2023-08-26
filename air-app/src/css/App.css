@@ -1,5 +1,8 @@
 html, body, #root { height: 100%; }
 
-.MainApp {
-  padding-top: 30vh;
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }

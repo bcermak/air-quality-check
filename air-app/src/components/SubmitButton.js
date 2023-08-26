@@ -5,7 +5,7 @@ function SubmitButton () {
     return (
         <div className="SubmitButton">
             <Button variant="primary" type="submit" onSubmit={console.log("clicked")}>
-                Submit
+                Generate Data
             </Button>
         </div>
     );
