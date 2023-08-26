@@ -2,6 +2,7 @@ import Form from 'react-bootstrap/Form';
 import '../css/MainForm.css';
 import Axios from 'axios';
 import { useState } from 'react';
+import { Button } from 'react-bootstrap';
 
 console.log(process.env.REACT_APP_API_KEY)
 
@@ -39,23 +40,23 @@ function MainForm() {
         <Form.Label></Form.Label>
         <Form.Control type="email" placeholder="City" onChange={(event) => {setCity(event.target.value)}}/>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
         <Form.Label></Form.Label>
         <Form.Control type="email" placeholder="State" onChange={(event) => {setState(event.target.value)}} />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
         <Form.Label></Form.Label>
         <Form.Control type="email" placeholder="Country" onChange={(event) => {setCountry(event.target.value)}} />
         </Form.Group>
     </Form>
          
-      <button onClick={fetchData}>
+      <Button className="primary" onClick={fetchData}>
           Generate Data
-      </button>
+      </Button>
 
-      <h5> Data for {resultCity} {resultState} {resultCountry} </h5>
-      <ul> Temp: {temp}° C</ul>
-      <ul> AQI: {aqi} </ul>
+      <h5 style={{display: resultCity ? '' : 'none'}}> Data for {resultCity} {resultState} {resultCountry} </h5>
+      <ul style={{display: temp ? '' : 'none'}}> Temp: {temp}° C</ul>
+      <ul style={{display: aqi ? '' : 'none'}}> AQI: {aqi} </ul>
     </>
         
   );
