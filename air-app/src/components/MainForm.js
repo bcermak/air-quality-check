@@ -17,7 +17,7 @@ function MainForm() {
   const [aqi, setAqi] = useState("");
   
   const fetchData = () => {
-      Axios.get(`http://api.airvisual.com/v2/city?city=${city}&state=${state}&country=${country}&key=${process.env.REACT_APP_API_KEY}`)
+      Axios.get(`http://api.airvisual.com/v2/city?city=${city}&state=${state}&country=${country}&key=621185cb-506f-4175-b71d-3a54e5e6b691`)
       .then( (res) => {  
       setResultCity(res.data.data.city);
       setResultState(res.data.data.state);
