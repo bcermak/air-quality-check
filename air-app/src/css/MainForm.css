@@ -1,0 +1,23 @@
+.mainForm {
+    width: 100%;
+    max-width: 250px;
+}
+
+.displayData h5 {
+    margin-top: 40px;
+    margin-bottom: 30px
+}
+
+.generateBtn {
+    background-color: rgb(54, 59, 63);
+    color: papayawhip;
+    border-radius: 10px;
+    margin: 10px;
+    width: 10em;
+    height: 2.5em;
+}
+
+.generateBtn:hover {
+    background-color: burlywood;
+    color: rgb(54, 59, 63)
+}

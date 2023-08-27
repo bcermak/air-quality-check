@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import '../css/MainForm.css';
 import Axios from 'axios';
 import { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import '../css/MainForm.css';
 
 console.log(process.env.REACT_APP_API_KEY)
 
@@ -37,29 +37,29 @@ function MainForm() {
 
   return (
     <>
+    <div className='mainForm'>
     <Form>
         <Form.Group className="mb-3">
-        <Form.Label></Form.Label>
-        <Form.Control type="email" placeholder="City" onChange={(event) => {setCity(event.target.value)}}/>
+        <Form.Control type="text" placeholder="City" onChange={(event) => {setCity(event.target.value)}}/>
         </Form.Group>
         <Form.Group className="mb-3">
-        <Form.Label></Form.Label>
-        <Form.Control type="email" placeholder="State" onChange={(event) => {setState(event.target.value)}} />
+        <Form.Control type="text" placeholder="State" onChange={(event) => {setState(event.target.value)}} />
         </Form.Group>
         <Form.Group className="mb-3">
-        <Form.Label></Form.Label>
-        <Form.Control type="email" placeholder="Country" onChange={(event) => {setCountry(event.target.value)}} />
+        <Form.Control type="text" placeholder="Country" onChange={(event) => {setCountry(event.target.value)}} />
         </Form.Group>
     </Form>
          
-      <Button className="primary" onClick={fetchData}>
+      <button className="generateBtn" onClick={fetchData}>
           Generate Data
-      </Button>
-
-      <h5 style={{display: resultCity ? '' : 'none'}}> Data for {resultCity} {resultState} {resultCountry} </h5>
-      <ul style={{display: temp ? '' : 'none'}}> Temp: {temp}° C</ul>
-      <ul style={{display: hum ? '' : 'none'}}> Humidity: {hum}%</ul>
-      <ul style={{display: aqi ? '' : 'none'}}> AQI: {aqi} </ul>
+      </button>
+      <div className='displayData'>
+        <h5 style={{display: resultCity ? '' : 'none'}}> Data for {resultCity}, {resultState}, {resultCountry}: </h5>
+        <ul style={{display: temp ? '' : 'none'}}> Temp: {temp}° C</ul>
+        <ul style={{display: hum ? '' : 'none'}}> Humidity: {hum}%</ul>
+        <ul style={{display: aqi ? '' : 'none'}}> AQI: {aqi} </ul>
+      </div>
+    </div>
     </>
         
   );

@@ -1,8 +1,15 @@
-html, body, #root { height: 100%; }
 
 .container {
   display: flex;
   align-items: center;
   flex-direction: column;
   text-align: center;
+  background-color: coral;
+  padding: 80px;
+  margin: 100px;
+  border-style: solid;
+  border-radius: 20px;
+  width: 100%;
+  min-width: 200px;
+  max-width: 400px;
 }
