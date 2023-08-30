@@ -1,11 +1,11 @@
-.mainForm {
-    width: 100%;
-    max-width: 250px;
+
+.displayDiv {
+    background-color: pink;
 }
 
 .displayData h5 {
     margin-top: 40px;
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 
 .generateBtn {
@@ -18,6 +18,6 @@
 }
 
 .generateBtn:hover {
-    background-color: burlywood;
-    color: rgb(54, 59, 63)
+    background-color: #A465A1;
+    color: rgb(151,255,231);
 }
