@@ -32,13 +32,15 @@ function MainForm() {
       ).catch((err)=> {
       console.log(err)
       });
+
+      document.searchForm.reset();
     
   }
 
   return (
     <>
     <div className='mainForm'>
-    <Form>
+    <Form name="searchForm">
         <Form.Group className="mb-3">
         <Form.Control type="text" placeholder="City" onChange={(event) => {setCity(event.target.value)}}/>
         </Form.Group>
