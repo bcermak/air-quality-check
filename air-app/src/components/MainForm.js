@@ -39,22 +39,28 @@ function MainForm() {
 
   return (
     <>
-    <div className='mainForm'>
-    <Form name="searchForm">
-        <Form.Group className="mb-3">
-        <Form.Control type="text" placeholder="City" onChange={(event) => {setCity(event.target.value)}}/>
-        </Form.Group>
-        <Form.Group className="mb-3">
-        <Form.Control type="text" placeholder="State" onChange={(event) => {setState(event.target.value)}} />
-        </Form.Group>
-        <Form.Group className="mb-3">
-        <Form.Control type="text" placeholder="Country" onChange={(event) => {setCountry(event.target.value)}} />
-        </Form.Group>
-    </Form>
-         
+    <div className='container'>
+      <div className="titleText">
+          <h2>Welcome to AirCheck</h2>
+          <p>Please enter location details below for the city whose air quality you want to check </p>
+      </div>
+      <Form name="searchForm">
+          <Form.Group className="mb-3">
+          <Form.Control type="text" placeholder="City" onChange={(event) => {setCity(event.target.value)}}/>
+          </Form.Group>
+          <Form.Group className="mb-3">
+          <Form.Control type="text" placeholder="State" onChange={(event) => {setState(event.target.value)}} />
+          </Form.Group>
+          <Form.Group className="mb-3">
+          <Form.Control type="text" placeholder="Country" onChange={(event) => {setCountry(event.target.value)}} />
+          </Form.Group>
+      </Form>   
       <button className="generateBtn" onClick={fetchData}>
           Generate Data
       </button>
+    </div>
+
+    <div className='displayContainer' style={{display: resultCity ? '' : 'none'}}>
       <div className='displayData'>
         <h5 style={{display: resultCity ? '' : 'none'}}> Data for {resultCity}, {resultState}, {resultCountry}: </h5>
         <ul style={{display: temp ? '' : 'none'}}> Temp: {temp}° C</ul>
