@@ -16,7 +16,9 @@ function MainForm() {
   const [resultCountry, setResultCountry] = useState("");
   const [temp, setTemp] = useState("");
   const [aqi, setAqi] = useState("");
-  const [hum, setHum] = useState("")
+  const [hum, setHum] = useState("");
+
+  const [selectedItem, setSelectedItem] = useState("")
   
   const fetchData = () => {
       Axios.get(`http://api.airvisual.com/v2/city?city=${city}&state=${state}&country=${country}&key=621185cb-506f-4175-b71d-3a54e5e6b691`)
@@ -52,7 +54,13 @@ function MainForm() {
           <Form.Control type="text" placeholder="State" onChange={(event) => {setState(event.target.value)}} />
           </Form.Group>
           <Form.Group className="mb-3">
-          <Form.Control type="text" placeholder="Country" onChange={(event) => {setCountry(event.target.value)}} />
+          {/* <Form.Control type="text" placeholder="Country" onChange={(event) => {setCountry(event.target.value)}} /> */}
+            <Form.Select placeholder="Country" value={selectedItem} onChange={(event) => {setSelectedItem(setCountry(event.target.value))}}>
+            <option> Country</option>
+            <option value="usa">USA</option>
+            <option value="united kingdom">United Kingdom</option>
+            <option value="canada">Canada</option>
+            </Form.Select>
           </Form.Group>
       </Form>   
       <button className="generateBtn" onClick={fetchData}>
