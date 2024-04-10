@@ -2,8 +2,7 @@ import MainForm from './components/MainForm';
 
 function App() {
 
-  return (
-    
+  return (    
     <div>
       <MainForm />
     </div>

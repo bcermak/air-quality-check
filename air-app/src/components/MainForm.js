@@ -14,7 +14,8 @@ function MainForm() {
   const [resultCity, setResultCity] = useState("");
   const [resultState, setResultState] = useState("");
   const [resultCountry, setResultCountry] = useState("");
-  const [temp, setTemp] = useState("");
+  const [tempF, setTempF] = useState("");
+  const [tempC, setTempC] = useState("");
   const [aqi, setAqi] = useState("");
   const [hum, setHum] = useState("");
 
@@ -26,7 +27,8 @@ function MainForm() {
       setResultCity(res.data.data.city);
       setResultState(res.data.data.state);
       setResultCountry(res.data.data.country);
-      setTemp(res.data.data.current.weather.tp);
+      setTempC(res.data.data.current.weather.tp)
+      setTempF(celsiusToFahrenheit(res.data.data.current.weather.tp));
       setAqi(res.data.data.current.pollution.aqius);
       setHum(res.data.data.current.weather.hu)
       console.log(res.data.data);
@@ -34,6 +36,11 @@ function MainForm() {
       ).catch((err)=> {
       console.log(err)
       });
+
+      function celsiusToFahrenheit(celsius) {
+        const fahrenheit = celsius * 9/5 + 32;
+        return fahrenheit;
+      }
 
       document.searchForm.reset();
     
@@ -69,9 +76,10 @@ function MainForm() {
     </div>
 
     <div className='displayContainer' style={{display: resultCity ? '' : 'none'}}>
-      <div className='displayData'>
+      <div className='displayData' style={{backgroundColor: aqi > 30 ? 'red' : 'blue'}}>
         <h5 style={{display: resultCity ? '' : 'none'}}> Data for {resultCity}, {resultState}, {resultCountry}: </h5>
-        <ul style={{display: temp ? '' : 'none'}}> Temp: {temp}° C</ul>
+        <ul style={{display: tempC ? '' : 'none'}}> Temp Celsius: {tempC}° </ul>
+        <ul style={{display: tempF ? '' : 'none'}}> Temp Fahrenheit: {tempF}° </ul>
         <ul style={{display: hum ? '' : 'none'}}> Humidity: {hum}%</ul>
         <ul style={{display: aqi ? '' : 'none'}}> AQI: {aqi} </ul>
       </div>
